@@ -12,4 +12,8 @@ export class TalksService {
   getTalks(): Talk[] {
     return talksJSON;
   }
+
+  getTalk(id): Talk {
+    return talksJSON[id];
+  }
 }

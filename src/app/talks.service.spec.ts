@@ -33,6 +33,11 @@ describe('TalksService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(TalksService);
     spyOn(service, 'getTalks').and.returnValue(mockTalks);
+    spyOn(service, 'getTalk')
+      .withArgs(0)
+      .and.returnValue(mockTalks[0])
+      .withArgs(1)
+      .and.returnValue(mockTalks[1]);
   });
 
   it('should be created', () => {
@@ -41,5 +46,10 @@ describe('TalksService', () => {
 
   it('should get the correct number of talks', () => {
     expect(service.getTalks().length).toBe(mockTalks.length);
+  });
+
+  it('should get the requested talk', () => {
+    expect(service.getTalk(0)).toEqual(mockTalks[0]);
+    expect(service.getTalk(1)).toEqual(mockTalks[1]);
   });
 });

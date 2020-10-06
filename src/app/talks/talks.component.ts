@@ -14,12 +14,7 @@ export class TalksComponent implements OnInit {
 
   constructor(private talksService: TalksService) {}
 
-  getSpeakerImagePath(talkId): string {
-    return `assets/${this.talks[talkId].speakers[0].image}`;
-  }
-
   ngOnInit(): void {
     this.talks = this.talksService.getTalks();
-    console.log(this.talks[0].speakers[0].image);
   }
 }
