@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { Observable, of } from 'rxjs';
 
+import { TalksService } from '../talks.service';
 import { TalksComponent } from './talks.component';
 import { Talk } from '../talk';
 
@@ -30,6 +32,7 @@ const mockTalks: Talk[] = [
 
 describe('TalksComponent', () => {
   let component: TalksComponent;
+  let talksService: TalksService;
   let fixture: ComponentFixture<TalksComponent>;
 
   beforeEach(async () => {
@@ -41,7 +44,8 @@ describe('TalksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TalksComponent);
     component = fixture.componentInstance;
-    component.talks = mockTalks;
+    talksService = TestBed.get(TalksService);
+    spyOn(talksService, 'getTalks').and.returnValue(mockTalks);
     fixture.detectChanges();
   });
 
@@ -49,7 +53,7 @@ describe('TalksComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('show all the talks', () => {
+  it('show the correct number of talks', () => {
     const talkElements = fixture.debugElement.queryAll(By.css('.talk'));
     expect(talkElements.length).toBe(mockTalks.length);
   });

@@ -14,6 +14,6 @@ export class TalksComponent implements OnInit {
   constructor(private talksService: TalksService) {}
 
   ngOnInit(): void {
-    this.talksService.getTalks();
+    this.talks = this.talksService.getTalks();
   }
 }

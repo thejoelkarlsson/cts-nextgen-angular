@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+import talksJSON from '../assets/data/talks.json';
 import { Talk } from './talk';
 
 @Injectable({
@@ -9,6 +10,6 @@ export class TalksService {
   constructor() {}
 
   getTalks(): Talk[] {
-    return [];
+    return talksJSON;
   }
 }
