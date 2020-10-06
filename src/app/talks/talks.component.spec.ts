@@ -53,17 +53,34 @@ describe('TalksComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('show the correct number of talks', () => {
+  it('shows the correct number of talks', () => {
     const talkElements = fixture.debugElement.queryAll(By.css('.talk'));
     expect(talkElements.length).toBe(mockTalks.length);
   });
 
-  it('should show the titles', () => {
-    const talkElements = fixture.debugElement.queryAll(By.css('.talk'));
-    talkElements.forEach((talkElement: DebugElement, index) => {
-      expect(talkElement.nativeElement.innerHTML).toContain(
-        mockTalks[index].title
+  describe('Content verification', () => {
+    it('should show the correct title', () => {
+      const titleElements = fixture.debugElement.queryAll(
+        By.css('.talk > p.title')
       );
+      expect(titleElements.length).toBeGreaterThan(0);
+      titleElements.forEach((titleElement: DebugElement, index) => {
+        expect(titleElement.nativeElement.innerHTML).toContain(
+          mockTalks[index].title
+        );
+      });
+    });
+
+    it('should render the speaker image', () => {
+      const imageElements = fixture.debugElement.queryAll(
+        By.css('.talk > img')
+      );
+      expect(imageElements.length).toBeGreaterThan(0);
+      imageElements.forEach((imageElement: DebugElement, index) => {
+        expect(imageElement.nativeElement.src).toMatch(
+          new RegExp(`${mockTalks[index].speakers[0].image}$`)
+        );
+      });
     });
   });
 });

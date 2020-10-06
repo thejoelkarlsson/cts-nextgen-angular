@@ -10,6 +10,7 @@ import { TalksService } from '../talks.service';
 })
 export class TalksComponent implements OnInit {
   talks: Talk[];
+  speakerImagePath: string = '';
 
   constructor(private talksService: TalksService) {}
 
