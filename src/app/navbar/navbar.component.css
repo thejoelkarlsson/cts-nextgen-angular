@@ -7,10 +7,6 @@
   height: 6rem;
 }
 
-.link {
-  @apply inline-block mt-0 text-white mr-4;
-}
-
-.link:hover {
+.link-active {
   @apply text-orange-400;
 }

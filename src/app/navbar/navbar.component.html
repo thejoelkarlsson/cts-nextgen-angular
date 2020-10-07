@@ -24,10 +24,15 @@
       </div>
       <div class="w-full block lg:flex lg:items-center lg:w-auto">
         <div id="nav-links" class="text-sm lg:flex-grow">
-          <a href="/" class="link">Home</a>
-          <a href="/schedule" class="link">Schedule</a>
-          <a href="/talks" class="link mr-0">Speakers</a>
-          <a href="/news" class="link mr-0">News</a>
+          <a href="/" class="{{ styles.link }}">Home</a>
+          <a href="/schedule" class="{{ styles.link }}">Schedule</a>
+          <a
+            routerLink="/talks"
+            class="{{ styles.link }}"
+            routerLinkActive="link-active"
+            >Speakers</a
+          >
+          <a href="/news" class="{{ styles.link }} mr-0">News</a>
         </div>
       </div>
     </nav>

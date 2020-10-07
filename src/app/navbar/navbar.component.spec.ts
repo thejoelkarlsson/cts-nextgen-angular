@@ -39,4 +39,12 @@ describe('NavbarComponent', () => {
     const navLinks = fixture.debugElement.query(By.css('#nav-links'));
     expect(navLinks.nativeElement.textContent).toEqual(navItems.join(''));
   });
+
+  it('should display the current active link', () => {
+    const navItems = ['Home', 'Schedule', 'Speakers', 'News'];
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const navLinks = fixture.debugElement.query(By.css('#nav-links'));
+    expect(navLinks.nativeElement.textContent).toEqual(navItems.join(''));
+  });
 });
