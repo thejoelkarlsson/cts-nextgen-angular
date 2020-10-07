@@ -1,10 +1,12 @@
-<div class="container mx-auto">
+<div class="container mx-auto flex flex-wrap">
   <div class="talk w-1/4" *ngFor="let talk of talks">
-    <img
-      src="assets/{{ speaker.image }}"
-      *ngFor="let speaker of talk.speakers"
-      class="{{ getImageClass(talk.speakers) }}"
-    />
+    <div class="flex">
+      <img
+        src="assets/{{ speaker.image }}"
+        *ngFor="let speaker of talk.speakers"
+        class="{{ getImageClass(talk.speakers) }}"
+      />
+    </div>
     <p class="speaker">
       {{ talk.speakers | speakerNames }}
     </p>
