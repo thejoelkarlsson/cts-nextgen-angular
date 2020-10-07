@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Talk } from '../talk';
+import { Speaker } from './../speaker';
 import { TalksService } from '../talks.service';
 
 @Component({
@@ -11,6 +12,10 @@ import { TalksService } from '../talks.service';
 export class TalksComponent implements OnInit {
   talks: Talk[];
   speakerImagePath: string = '';
+
+  getImageClass(images: Speaker[]): string {
+    return images.length === 1 ? 'w-full' : 'w-1/2';
+  }
 
   constructor(private talksService: TalksService) {}
 

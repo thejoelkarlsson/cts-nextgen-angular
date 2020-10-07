@@ -6,11 +6,15 @@ import { Observable, of } from 'rxjs';
 import { TalksService } from '../talks.service';
 import { TalksComponent } from './talks.component';
 import { Talk } from '../talk';
+import { SpeakerNamesPipe } from './../speaker-names.pipe';
 
 const mockTalks: Talk[] = [
   {
     id: 0,
-    speakers: [{ name: 'Speaker 1', image: 'speaker1.jpg' }],
+    speakers: [
+      { name: 'Speaker 1', image: 'speaker1.jpg' },
+      { name: 'Speaker 3', image: 'speaker3.jpg' },
+    ],
     title: 'Title 1',
     description: 'desc 1',
     feedbackUrl: 'http://localhost:4200/?feedback1',
@@ -37,7 +41,7 @@ describe('TalksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TalksComponent],
+      declarations: [TalksComponent, SpeakerNamesPipe],
     }).compileComponents();
   });
 
@@ -73,7 +77,7 @@ describe('TalksComponent', () => {
 
     it('should render the speaker image', () => {
       const imageElements = fixture.debugElement.queryAll(
-        By.css('.talk > img')
+        By.css('.talk > img:first-child')
       );
       expect(imageElements.length).toBeGreaterThan(0);
       imageElements.forEach((imageElement: DebugElement, index) => {
