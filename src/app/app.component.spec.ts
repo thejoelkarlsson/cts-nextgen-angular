@@ -1,14 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TalksComponent } from './talks/talks.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent, TalksComponent],
+      declarations: [AppComponent, TalksComponent, NavbarComponent],
     }).compileComponents();
   });
 
@@ -24,12 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('cts-nextgen-angular');
   });
 
-  it('should render title', () => {
+  it('should render navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'Welcome to CTS 2020!'
-    );
+    const navbar = fixture.debugElement.query(By.css('#navbar'));
+    expect(navbar).toBeTruthy();
   });
 });

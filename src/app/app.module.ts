@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TalksComponent } from './talks/talks.component';
 import { TalkComponent } from './talk/talk.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, TalksComponent, TalkComponent],
+  declarations: [AppComponent, TalksComponent, TalkComponent, NavbarComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

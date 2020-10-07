@@ -1,0 +1,16 @@
+#navbar {
+  background-color: #323232;
+}
+
+.logo {
+  width: 6rem;
+  height: 6rem;
+}
+
+.link {
+  @apply inline-block mt-0 text-white mr-4;
+}
+
+.link:hover {
+  @apply text-orange-400;
+}
