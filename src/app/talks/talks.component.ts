@@ -13,8 +13,8 @@ export class TalksComponent implements OnInit {
   talks: Talk[];
   speakerImagePath: string = '';
 
-  getImageClass(images: Speaker[]): string {
-    return images.length === 1 ? 'w-full' : 'w-1/2';
+  getImageClass(length: number): string {
+    return length === 1 ? 'w-full' : 'w-1/2';
   }
 
   constructor(private talksService: TalksService) {}
